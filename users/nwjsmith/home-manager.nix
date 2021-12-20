@@ -52,6 +52,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.starship.enable = true;
 
   programs.git = {
     enable = true;
@@ -77,18 +78,21 @@
     extraConfig = builtins.readFile ./kitty;
   };
 
-  programs.vim.enable = true;
+  programs.neovim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-fugitive
+      vim-gruvbox8
+    ];
+    extraConfig = ''
+      set termguicolors
+      set background=light
+      colorscheme gruvbox8
+    '';
+  };
 
   programs.i3status = {
     enable = true;
-
-    general = {
-      colors = true;
-      color_good = "#8C9440";
-      color_bad = "#A54242";
-      color_degraded = "#DE935F";
-    };
-
     modules = {
       ipv6.enable = false;
       "wireless _first_".enable = false;
