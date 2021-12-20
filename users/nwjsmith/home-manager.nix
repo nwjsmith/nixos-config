@@ -52,6 +52,13 @@
     enable = true;
     userName = "Nate Smith";
     userEmail = "nate@theinternate.com";
+    aliases = {
+      st = "status";
+    };
+    signing = {
+      key = "F2089547768B6CCA";
+      signByDefault = true;
+    };
   };
 
   programs.alacritty = {
@@ -75,6 +82,8 @@
     enable = true;
     extraConfig = builtins.readFile ./kitty;
   };
+
+  programs.vim.enable = true;
 
   programs.i3status = {
     enable = true;
