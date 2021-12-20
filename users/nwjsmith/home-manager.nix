@@ -46,7 +46,7 @@
 
     config = {
       whitelist = {
-        exact = ["$HOME/.envrc"];
+        exact = ["/home/nwjsmith/.envrc"];
       };
     };
   };
