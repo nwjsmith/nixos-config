@@ -58,9 +58,10 @@
     userName = "Nate Smith";
     userEmail = "nate@theinternate.com";
     aliases = {
-      st = "status";
+      co = "checkout";
       dc = "diff --cached";
       di = "diff";
+      st = "status";
     };
     extraConfig = {
       core.askpass = "";
