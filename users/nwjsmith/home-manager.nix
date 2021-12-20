@@ -11,8 +11,8 @@
     pkgs.bat
     pkgs.fzf
     pkgs.htop
-    pkgs.rofi
     pkgs.jq
+    pkgs.rofi
   ];
 
   #---------------------------------------------------------------------
@@ -33,6 +33,11 @@
   #---------------------------------------------------------------------
   # Programs
   #---------------------------------------------------------------------
+
+  programs.gh = {
+    enable = true;
+    enableGitCredentialHelper = true;
+  };
 
   programs.gpg.enable = true;
 
