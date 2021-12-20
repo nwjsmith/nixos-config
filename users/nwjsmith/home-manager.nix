@@ -102,6 +102,13 @@
     };
   };
 
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "tty";
+    defaultCacheTtl = 31536000;
+    maxCacheTtl = 31536000;
+  };
+
   xresources.extraConfig = builtins.readFile ./Xresources;
 
   # Make cursor not tiny on HiDPI screens
