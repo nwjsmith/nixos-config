@@ -7,13 +7,15 @@
   # Packages
   #---------------------------------------------------------------------
 
-  home.packages = [
-    pkgs.bat
-    pkgs.fzf
-    pkgs.htop
-    pkgs.jq
-    pkgs.rofi
+  home.packages = with pkgs; [
+    bat
+    fzf
+    htop
+    jq
+    nodejs
+    rofi
   ];
+
 
   #---------------------------------------------------------------------
   # Env vars and dotfiles
