@@ -83,15 +83,27 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      gruvbox-material
+      (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      gitsigns-nvim
+      nvim-lspconfig
+      vim-commentary
+      vim-eunuch
       vim-fugitive
-      vim-gruvbox8
-      vim-nix
+      vim-repeat
+      vim-rhubarb
+      vim-sleuth
+      vim-speeddating
+      vim-surround
+      vim-test
+      telescope-fzy-native-nvim
       vim-vinegar
     ];
     extraConfig = ''
       set termguicolors
       set background=light
-      colorscheme gruvbox8
+      let g:gruvbox_material_palette="original"
+      colorscheme gruvbox-material
     '';
   };
 
