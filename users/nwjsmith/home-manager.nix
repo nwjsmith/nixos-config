@@ -9,11 +9,8 @@
 
   home.packages = with pkgs; [
     fd
-    htop
     jq
-    nodejs
     ripgrep
-    rofi
   ];
 
 
@@ -133,10 +130,12 @@
       fzf-vim
       gitsigns-nvim
       gruvbox-community
+      lightline-vim
       nvim-lspconfig
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       vim-commentary
       vim-dadbod
+      vim-dispatch
       vim-eunuch
       vim-fugitive
       vim-repeat
@@ -148,11 +147,7 @@
       vim-unimpaired
       vim-vinegar
     ];
-    extraConfig = ''
-      set termguicolors
-      set background=light
-      colorscheme gruvbox
-    '';
+    extraConfig = builtins.readFile ./nvimrc;
   };
 
   programs.i3status = {
