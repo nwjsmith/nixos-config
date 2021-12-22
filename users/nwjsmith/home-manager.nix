@@ -34,6 +34,8 @@
   # Programs
   #---------------------------------------------------------------------
 
+  programs.firefox.enable = true;
+
   programs.gh = {
     enable = true;
     enableGitCredentialHelper = true;
@@ -83,6 +85,8 @@
     plugins = with pkgs.vimPlugins; [
       vim-fugitive
       vim-gruvbox8
+      vim-nix
+      vim-vinegar
     ];
     extraConfig = ''
       set termguicolors
@@ -93,11 +97,6 @@
 
   programs.i3status = {
     enable = true;
-    modules = {
-      ipv6.enable = false;
-      "wireless _first_".enable = false;
-      "battery all".enable = false;
-    };
   };
 
   services.gpg-agent = {

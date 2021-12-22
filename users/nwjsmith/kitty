@@ -1,19 +1,19 @@
 font_family Fira Code
-font_size 12.0
+font_size 10.0
 
 #--------------------------------------------------------------------
 # Key bindings
 #--------------------------------------------------------------------
 # Clipboard
-map super+v             paste_from_clipboard
-map super+c             copy_or_interrupt
+map super+v paste_from_clipboard
+map super+c copy_or_interrupt
 
 # Screen
 map super+k combine : clear_terminal scroll active : send_text normal,application \x0c
 
 # Miscellaneous
-map super+equal      increase_font_size
-map super+minus    decrease_font_size
+map super+equal increase_font_size
+map super+minus decrease_font_size
 map super+0 restore_font_size
 
 # Based on https://github.com/morhetz/gruvbox by morhetz <morhetz@gmail.com>

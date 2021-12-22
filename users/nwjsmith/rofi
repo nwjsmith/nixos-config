@@ -1,6 +1,6 @@
 configuration {
-  dpi: 220;
-  font: "Monaco for Powerline 12";
+  dpi: 192;
+  font: "Fira Code 10";
 }
 
 * {

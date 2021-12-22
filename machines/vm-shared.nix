@@ -43,7 +43,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    dpi = 254;
+    dpi = 192;
 
     desktopManager = {
       xterm.enable = false;
@@ -59,7 +59,7 @@
       sessionCommands = ''
         ${pkgs.xlibs.xset}/bin/xset r rate 200 40
       '' + (if currentSystem == "aarch64-linux" then ''
-        ${pkgs.xorg.xrandr}/bin/xrandr -s '3456x2160'
+        ${pkgs.xorg.xrandr}/bin/xrandr -s '2880x1800'
       '' else "");
     };
 

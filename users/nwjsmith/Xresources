@@ -34,3 +34,5 @@
 ! LightGrey + White
 *color7:  #7c6f64
 *color15: #3c3836
+
+Xft.dpi: 192
