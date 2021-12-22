@@ -36,3 +36,9 @@
 *color15: #3c3836
 
 Xft.dpi: 192
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: true
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
