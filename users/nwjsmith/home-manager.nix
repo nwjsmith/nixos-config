@@ -8,10 +8,11 @@
   #---------------------------------------------------------------------
 
   home.packages = with pkgs; [
-    bat
+    fd
     htop
     jq
     nodejs
+    ripgrep
     rofi
   ];
 
@@ -25,11 +26,25 @@
     LC_CTYPE = "en_CA.UTF-8";
     LC_ALL = "en_CA.UTF-8";
     EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+    PAGER = "less -FR";
   };
+
 
   home.file.".inputrc".source = ./inputrc;
 
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
+
+  #---------------------------------------------------------------------
+  # Programs
+  #---------------------------------------------------------------------
+
+  programs.firefox.enable = true;
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
 
   programs.rofi = {
     enable = true;
@@ -41,11 +56,11 @@
     };
   };
 
-  #---------------------------------------------------------------------
-  # Programs
-  #---------------------------------------------------------------------
-
-  programs.firefox.enable = true;
+  programs.bat = {
+    config = {
+      theme = "gruvbox-light";
+    };
+  };
 
   programs.gh = {
     enable = true;
@@ -64,10 +79,28 @@
     };
   };
 
-  programs.zsh.enable = true;
+  programs.zoxide.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    defaultKeymap = "viins";
+  };
+
   programs.starship.enable = true;
+
   programs.fzf = {
     enable = true;
+    defaultCommand = "${pkgs.fd}/bin/fd --type f";
+    defaultOptions = [
+      "--color=bg+:#ebdbb2,bg:#fbf1c7,spinner:#b57614,hl:#b57614"
+      "--color=fg:#3c3836,header:#bdae93,info:#076678,pointer:#076678"
+      "--color=marker:#af3a03,fg+:#3c3836,prompt:#7c6f64,hl+:#b57614"
+    ];
+    changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
+    fileWidgetCommand = "${pkgs.fd}/bin/fd --type f";
+
   };
 
   programs.git = {
@@ -103,6 +136,7 @@
       nvim-lspconfig
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       vim-commentary
+      vim-dadbod
       vim-eunuch
       vim-fugitive
       vim-repeat
@@ -111,6 +145,7 @@
       vim-speeddating
       vim-surround
       vim-test
+      vim-unimpaired
       vim-vinegar
     ];
     extraConfig = ''
