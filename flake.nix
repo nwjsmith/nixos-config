@@ -23,7 +23,7 @@
     overlays = [
     ];
   in {
-    nixosConfigurations.vm = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
 
       modules = [
