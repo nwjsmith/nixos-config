@@ -46,7 +46,7 @@
   programs.rofi = {
     enable = true;
     theme = "gruvbox-light";
-    font = "Fira Code 13";
+    font = "FiraCode Nerd 10";
     terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       dpi = 192;
