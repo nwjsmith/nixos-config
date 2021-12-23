@@ -23,7 +23,7 @@
     overlays = [
     ];
   in {
-    nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.vm = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
 
       modules = [
@@ -32,8 +32,8 @@
         # the overlays are available globally.
         { nixpkgs.overlays = overlays; }
 
-        ./hardware/vm-aarch64.nix
-        ./machines/vm-aarch64.nix
+        ./hardware/vm.nix
+        ./machines/vm.nix
         ./users/nwjsmith/nixos.nix
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
