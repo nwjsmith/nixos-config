@@ -19,16 +19,28 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nixpkgs-unstable, ... }@inputs: let
-    mkVM = import ./lib/mkvm.nix;
-
     # Overlays is the list of overlays we want to apply from flake inputs.
     overlays = [
     ];
   in {
-    nixosConfigurations.vm-aarch64 = mkVM "vm-aarch64" rec {
-      inherit overlays nixpkgs home-manager;
+    nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
-      user   = "nwjsmith";
+
+      modules = [
+        # Apply our overlays. Overlays are keyed by system type so we have
+        # to go through and apply our system type. We do this first so
+        # the overlays are available globally.
+        { nixpkgs.overlays = overlays; }
+
+        ./hardware/vm-aarch64.nix
+        ./machines/vm-aarch64.nix
+        ./users/nwjsmith/nixos.nix
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.nwjsmith = import ./users/nwjsmith/home-manager.nix;
+        }
+      ];
     };
   };
 }
