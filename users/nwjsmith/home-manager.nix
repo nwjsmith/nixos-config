@@ -31,6 +31,7 @@
   home.file.".inputrc".source = ./inputrc;
 
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
+  xdg.configFile."nvim/nvim.lua".text = builtins.readFile ./nvim.lua;
 
   #---------------------------------------------------------------------
   # Programs
@@ -152,7 +153,10 @@
       vim-unimpaired
       vim-vinegar
     ];
-    extraConfig = builtins.readFile ./nvimrc;
+    extraConfig = ''
+      let s:nvim = expand("<sfile>:p:h") . "/nvim.lua"
+      execute "luafile " . s:nvim
+    '';
   };
 
   programs.i3status = {
