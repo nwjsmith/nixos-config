@@ -127,6 +127,7 @@
     };
     extraConfig = {
       core.askpass = "";
+      init.defaultBranch = "main";
     };
     signing = {
       key = "F2089547768B6CCA";
