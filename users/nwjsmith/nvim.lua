@@ -62,3 +62,9 @@ lspconfig['tsserver'].setup({
   end,
   flags = { debounce_text_changes = 150 },
 })
+
+lspconfig['denols'].setup({
+  autostart = false,
+  on_attach = set_bindings,
+  flags = { debounce_text_changes = 150 },
+})
