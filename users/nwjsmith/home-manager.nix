@@ -8,9 +8,17 @@
   #---------------------------------------------------------------------
 
   home.packages = with pkgs; [
+    deno
     fd
+    flyctl
+    gcc
     jq
+    ngrok
+    nodejs
+    python
     ripgrep
+    sqlite
+    (nodePackages.typescript-language-server)
   ];
 
 
