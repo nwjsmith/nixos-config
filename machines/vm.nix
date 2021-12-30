@@ -93,6 +93,16 @@
     };
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_14;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = false;
 
