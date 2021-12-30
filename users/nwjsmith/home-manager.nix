@@ -154,6 +154,7 @@
       vim-dispatch
       vim-eunuch
       vim-fugitive
+      vim-nix
       vim-repeat
       vim-rhubarb
       vim-sleuth
