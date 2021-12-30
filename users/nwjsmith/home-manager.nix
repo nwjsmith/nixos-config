@@ -62,12 +62,6 @@
     };
   };
 
-  programs.bat = {
-    config = {
-      theme = "gruvbox-light";
-    };
-  };
-
   programs.gh = {
     enable = true;
     enableGitCredentialHelper = true;
@@ -98,6 +92,13 @@
     enable = true;
     settings = {
       add_newline = false;
+    };
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "gruvbox-light";
     };
   };
 
