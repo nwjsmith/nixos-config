@@ -19,6 +19,7 @@
     ripgrep
     sqlite
     (nodePackages.typescript-language-server)
+    zeal
   ];
 
 
@@ -147,6 +148,7 @@
       gitsigns-nvim
       gruvbox-community
       lightline-vim
+      null-ls-nvim
       nvim-lspconfig
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       vim-commentary
