@@ -146,6 +146,13 @@
       xrandr --addmode Virtual-1 3024x1890_60.00
       xrandr -s 3024x1890_60.00
     '')
+    (writeShellScriptBin "xrandr-27" ''
+      if ! grep -qF "3840x2160_60.00" <(xrandr --query || true); then
+        xrandr --newmode "3840x2160_60.00"  712.75  3840 4160 4576 5312  2160 2163 2168 2237 -hsync +vsync
+      fi
+      xrandr --addmode Virtual-1 3840x2160_60.00
+      xrandr -s 3840x2160_60.00
+    '')
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
